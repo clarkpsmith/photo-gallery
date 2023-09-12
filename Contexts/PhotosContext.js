@@ -2,43 +2,45 @@ import React, { createContext, useContext, useEffect, useState, useMemo } from '
 import { CONTENTFUL_ACCESS_KEY, CONTENTFUL_SPACE_ID } from '../apiKeys';
 import { createClient } from 'contentful'
 
+const PhotosContext = createContext(null);
 
-const PhotosContext = createContext(null)
+const usePhotos = () => useContext(PhotosContext);
 
-const usePhotos = () => useContext(PhotosContext)
+function PhotosProvider({ children }) {
+  const [photos, setPhotos] = useState([]);
 
-function PhotosProvider({children}) {
-  const [photos, setPhotos] = useState([])
+  const client = useMemo(() => {
+    return createClient({
+      space: CONTENTFUL_SPACE_ID,
+      accessToken: CONTENTFUL_ACCESS_KEY,
+    });
+  }, []);
 
-const client = useMemo( () => { return createClient({
-  space: CONTENTFUL_SPACE_ID,
-  accessToken: CONTENTFUL_ACCESS_KEY,
-})}, [])
+  useEffect(() => {
+    function getPhotos() {
+      client.getEntries({ content_type: 'showPhotos' }).then((res) => {
+        setPhotos(
+          res.items.map((p) => ({
+            uri: `https:${p.fields?.imageUrl?.fields?.file?.url}`,
+          }))
+        );
+      });
+    }
 
-useEffect(() => {
-
-function getPhotos() {
-  client.getEntries({ content_type: 'showPhotos' }).then(res => {
-   setPhotos(res.items.map((p) => ({uri: `https:${p.fields?.imageUrl?.fields?.file?.url}`})))
-  })
-}
-
-if(client) {
-  getPhotos()
-}
-
-}, [client])
-
+    if (client) {
+      getPhotos();
+    }
+  }, [client]);
 
   return (
     <PhotosContext.Provider
       value={{
-       photos
+        photos,
       }}
     >
       {children}
     </PhotosContext.Provider>
-  )
+  );
 }
 
 export { PhotosProvider, usePhotos }

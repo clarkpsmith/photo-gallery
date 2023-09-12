@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import CloseIcon from './CloseIcon';
 
 const BackButton = ({ onPress }) => {
@@ -12,12 +12,12 @@ const BackButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   button: {
-padding: 16
+    padding: 16,
   },
   buttonText: {
     color: '#87CEEB',
     fontSize: 22,
-    fontWeight: "700",
+    fontWeight: '700',
   },
 });
 
