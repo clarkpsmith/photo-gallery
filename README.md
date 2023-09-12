@@ -1,3 +1,4 @@
+```markdown
 # Photo Gallery App
 
 The Photo Gallery App is a mobile application built with React Native that allows users to browse a photo collection. I'm using the contentful API to pull some photos that i've uploaded of the DJ DYNOHUNTER.
@@ -22,7 +23,7 @@ To run the Photo Gallery App locally, follow these steps:
    
 2. Navigate to the project directory:
 
- 	```bash 
+	```bash 
 	cd photo-gallery
 	```
 3. Start the development server:
@@ -42,5 +43,6 @@ yarn start
 	```CONTENTFUL_SPACE_ID='your_contentful_space_id'```
 	
 7.  In Contentful, create a content model called showPhotos with a media field type named imageUrl, and upload some photos to this model.
+```
 	
 	
