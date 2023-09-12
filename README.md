@@ -30,9 +30,9 @@ To run the Photo Gallery App locally, follow these steps:
 
 	```bash 
 	npm start
-# or
-yarn start
-```
+ 	# or
+	yarn start
+	```
 
 4. Run the app on an Android or iOS emulator or a physical device via Expo.
 
