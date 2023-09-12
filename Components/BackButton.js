@@ -1,13 +1,11 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import CloseIcon from './CloseIcon';
 
 const BackButton = ({ onPress }) => {
   return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={onPress}
-    >
-      <Text style={styles.buttonText}>Back</Text>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <CloseIcon />
     </TouchableOpacity>
   );
 };
