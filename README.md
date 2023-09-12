@@ -1,6 +1,6 @@
 # Photo Gallery App
 
-The Photo Gallery App is a mobile application built with react native that allows users to browse a photo collection. I'm using the contentful API to pull some photos that i've uploaded of the DJ DYNOHUNTER.
+The Photo Gallery App is a mobile application built with React Native that allows users to browse a photo collection. I'm using the contentful API to pull some photos that i've uploaded of the DJ DYNOHUNTER.
 
 ## Features
 
